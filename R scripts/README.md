@@ -32,3 +32,8 @@ Commented R scripts to enable readers to reproduce the analyses. All scripts wer
 
 **rate_distribution_unpar.R**:
 >Script for subfigures A and E of figure 4, and subfigure E of figure 3. It generates the hexbin plot and mass distribution of branches that exhibit rate bursts in the unpartitioned dataset, as well as the raincloud plots of branch mass of four subsets. This script also combines the subfigures **morpho_rate_partitioned_all branch.rds** to create figure 4, so **rate_distribution_par.R** should be run before this script.
+
+## figure S1
+
+**plot_consensus.R**:
+>Script for figure S1. It plots the 50% reduced consensus tree.
