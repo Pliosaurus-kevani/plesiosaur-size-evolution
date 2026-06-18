@@ -1,0 +1,57 @@
+#NEXUS
+
+Begin data;
+Dimensions ntax=49 nchar=1;
+Format datatype=Continuous missing=? gap=-;
+Matrix
+Archaeonectrus_rostratus	2.39794000867204
+Attenborosaurus_conybeari	2.80888586735981
+Atychodracon_megacephalus	3.01703333929878
+Avalonnectes_arturi	2.04532297878666
+Colymbosaurus_megadeirus	3.11159852488039
+Eoplesiosaurus_antiquior	2.10037054511756
+Eretmosaurus_rugosus	2.50514997831991
+Hauffiosaurus_longirostris	3.33745926129066
+Hauffiosaurus_zanoni	2.38201704257487
+Lindwurmia_thiuda	2.09691001300806
+Microcleidus_brachypterygius	1.96378782734556
+Microcleidus_homalospondylus	2.80888586735981
+Plesiosaurus_dolichodeirus	2.08635983067475
+Rhomaleosaurus_zetlandicus	3.18440748541232
+Thalassiodracon_hawkinsii	1.60205999132796
+Trinacromerum_bentonianum	3.12450422483428
+Rhomaleosaurus_cramptoni	3.43964842956347
+Rhomaleosaurus_thorntoni	3.46553155697355
+Dolichorhynchops_herschelensis	2.50514997831991
+Eopolycotylus_rankini	2.84633711212981
+Leptocleidus_superstes	2.33645973384853
+Muraenosaurus_leedsii	3.08457627793433
+Ophthalmothule_cryostea	2.80685802951882
+Palmulasaurus_quadratus	2.7701152947871
+Pantosaurus_striatus	2.77305469336426
+Picrocleidus_beloclis	2.18752072083646
+Dolichorhynchops_tropicensis	2.4983105537896
+Thililua_longicollis	3.11660774398825
+Tricleidus_seeleyi	2.32014628611105
+Westphaliasaurus_simonsensii	2.73399928653839
+Tatenectes_laramiensis	2.49276038902684
+Leptocleidus_capensis	2.19589965240923
+Plesiosaurus_mansellii	3.18582535961296
+Gronausaurus_wegneri	2.54282542695918
+Macroplata_tenuiceps	2.78103693862113
+Meyerasaurus_victor	2.57287160220048
+Seeleyosaurus_guilelmiimperatoris	2.29885307640971
+Microcleidus_tournemirensis	2.34830486304816
+Plesiopterys_wildi	2.11727129565576
+Cryptoclidus_eurymerus	2.55630250076729
+Abyssosaurus_nataliae	3.0927206446841
+Polycotylus_latipinnis	3.01661554755718
+Dolichorhynchops_osborni	2.62838893005031
+Dolichorhynchops_bonneri	3.1044871113124
+Marmornectes_candrewi	3.09166695759568
+Eurycleidus_arcuatus	2.80140371001736
+Pahasapasaurus_haasi	3.20655604409903
+Thaumatodracon_wiedenrothi	3.11327469246435
+Edgarosaurus_muddi	2.70156798505593
+;
+End;

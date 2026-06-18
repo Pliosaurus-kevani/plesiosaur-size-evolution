@@ -1,0 +1,52 @@
+setwd("C:/Users/28299/Desktop/my papers/plesiosaur phylogeny/BM and OU/others")
+
+trees <- readTrees("data/trees_others.nex")
+
+data <- readContinuousCharacterData("data/mass_others.nex")
+
+data.includeCharacter(1)
+
+for(i in 1:100)
+{
+moves    = VectorMoves()
+monitors = VectorMonitors()
+
+tree <- trees[i]
+
+sigma2 ~ dnLoguniform(1e-3, 1e1)
+moves.append( mvScale(sigma2, weight=1.0) )
+
+root_age := tree.rootAge()
+
+alpha ~ dnReversibleJumpMixture(0.0, dnExponential( abs(root_age / 2.0 / ln(2.0)) ), 0.5)
+moves.append( mvRJSwitch(alpha, weight=1.0) )
+moves.append( mvScale(alpha, weight=1.0) )
+
+theta ~ dnUniform(-10, 10)
+moves.append( mvSlide(theta, weight=1.0) )
+
+avmvn_move = mvAVMVN(weight=5, waitBeforeLearning=500, waitBeforeUsing=1000)
+avmvn_move.addVariable(sigma2)
+avmvn_move.addVariable(alpha)
+avmvn_move.addVariable(theta)
+moves.append( avmvn_move )
+
+is_OU := ifelse(alpha != 0.0, 1, 0)
+is_BM := ifelse(alpha == 0.0, 1, 0)
+
+X ~ dnPhyloOrnsteinUhlenbeckREML(tree, alpha, theta, sigma2^0.5, rootStates=theta)
+X.clamp( data )
+
+mymodel = model(tree)
+
+### set up the monitors that will output parameter values to file and screen
+monitors.append( mnModel(filename="output/simple_OU_RJ_" + i + ".log", printgen=10) )
+monitors.append( mnScreen(printgen=1000, sigma2, alpha, theta, is_OU) )
+
+mymcmc = mcmc(mymodel, monitors, moves)
+
+### run the MCMC ###
+mymcmc.burnin(generations=1000, tuningInterval=100)
+mymcmc.run(generations=50000)
+
+}

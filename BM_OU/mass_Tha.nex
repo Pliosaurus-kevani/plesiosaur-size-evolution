@@ -1,0 +1,24 @@
+#NEXUS
+
+Begin data;
+Dimensions ntax=16 nchar=1;
+Format datatype=Continuous missing=? gap=-;
+Matrix
+Brachauchenius_lucasi	3.20682587603185
+Makhaira_rossica	2.9329808219232
+Pliosaurus_andrewsi	3.19368102954128
+Luskhan_itilensis	3.38309692994909
+Peloneustes_philarchus	3.01494034979294
+Pliosaurus_funkei	4.03714750363255
+Liopleurodon_ferox	3.25406445291434
+Kronosaurus_MCZ_1285	4.05675244056744
+Sachicasaurus_vitae	4.10802350934609
+Simolestes_vorax	3.38165648258579
+Stenorhynchosaurus_munozi	3.74717867136016
+Pliosaurus_westburyensis	3.66754633951152
+Pliosaurus_almanzaensis	3.35198945543563
+Pliosaurus_rossicus	4.10533983980529
+Brachauchenius_MNA_V9433	3.58748646541096
+Pliosaurus_irgisensis	3.27806733088866
+;
+End;

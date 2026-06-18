@@ -1,0 +1,32 @@
+#NEXUS
+
+Begin data;
+Dimensions ntax=24 nchar=1;
+Format datatype=Continuous missing=? gap=-;
+Matrix
+Callawayasaurus_colombiensis	3.36229393796423
+Kaiwhekea_katiki	3.28623185402855
+Styxosaurus_rezaci	4.01649013162083
+Wapuskanectes_betsynichollsae	3.10890312766731
+Libonectes_morgani	2.81822589361396
+Fluvionectes_sagecrensis	2.54157924394658
+Futabasaurus_suzukii	3.26599637049508
+Jucha_squalea	3.13449585583467
+Nakonanectes_bradti	3.12936759572299
+Kawanectes_lafquenianum	2.65030752313194
+Styxosaurus_browni	3.4848690327204
+Morenosaurus_stocki	3.59028440371816
+Elasmosaurus_platyurus	3.49612960216318
+Aristonectes_quiriquinensis	3.61971926561173
+Albertonectes_vanderveldei	3.49234125325497
+Vegasaurus_molyi	2.9237619608287
+Hydrotherosaurus_alexandrae	3.27346427262135
+Thalassomedon_haningtoni	3.83193373046675
+Styxosaurus_SDSM_451	3.48855071650044
+Terminonatator_ponteixensis	3.04257551244019
+Zarafasaura_oceanis	3.02897770520878
+Cardiocorax_mukulu	3.15624619039734
+Aphrosaurus_furlongi	3.08493357493672
+Traskasaura_sandrae	2.95424250943932
+;
+End;
