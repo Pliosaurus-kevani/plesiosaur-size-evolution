@@ -24,3 +24,11 @@ Commented R scripts to enable readers to reproduce the analyses. All scripts wer
 
 **figure2_patch.R**:
 >Script for figure 2 presented in the manuscript. Before running this file, you need to run the R files **mass_mapping.R**, **multi_mode_mass_evolution.R**, and **BM_OU.R**, as this script aims to combine the subfigures generated therein to create figure 2.
+
+## figure 4
+
+**rate_distribution_par.R**:
+>Script for subfigures B-D and F-H of figure 4 presented in the manuscript. It generates the hexbin plots and mass distribution of branches that exhibit rate bursts in craniodental, axial, or appendicular characters. It generates a figure file named as **morpho_rate_partitioned_all branch.rds**.
+
+**rate_distribution_unpar.R**:
+>Script for subfigures A and E of figure 4, and subfigure E of figure 3. It generates the hexbin plot and mass distribution of branches that exhibit rate bursts in the unpartitioned dataset, as well as the raincloud plots of branch mass of four subsets. This script also combines the subfigures **morpho_rate_partitioned_all branch.rds** to create figure 4, so **rate_distribution_par.R** should be run before this script.
