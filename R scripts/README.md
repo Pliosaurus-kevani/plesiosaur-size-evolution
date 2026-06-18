@@ -37,3 +37,8 @@ Commented R scripts to enable readers to reproduce the analyses. All scripts wer
 
 **plot_consensus.R**:
 >Script for figure S1. It plots the 50% reduced consensus tree.
+
+## other analyses
+
+**rate_mass_PGLS.R**:
+>Script for phylogenetic generalized least squares between body mass and morphological rates in unpartitioned, craniodental, axial, or appendicular characters.
