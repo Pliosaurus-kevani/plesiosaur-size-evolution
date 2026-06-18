@@ -1,0 +1,152 @@
+#NEXUS
+[written Tue Apr 07 13:38:58 CST 2026 by Mesquite  version 3.81 (build 955) at LAPTOP-8J1NHAM6/26.156.38.114]
+
+BEGIN TAXA;
+	TITLE Taxa;
+	DIMENSIONS NTAX=130;
+	TAXLABELS
+		Yunguisaurus_liae Pistosaurus_postcranium Pistosaurus_skull Augustasaurus_hagdorni Bobosaurus_forojuliensis Macroplata_tenuiceps Anningasaura_lymense Stratesaurus_taylori Avalonnectes_arturi Eurycleidus_arcuatus Meyerasaurus_victor Maresaurus_coccai Borealonectes_russelli Thaumatodracon_wiedenrothi Atychodracon_megacephalus Archaeonectrus_rostratus Rhomaleosaurus_cramptoni Rhomaleosaurus_zetlandicus Rhomaleosaurus_thorntoni Thalassiodracon_hawkinsii Hauffiosaurus_longirostris Hauffiosaurus_tomistomimus Hauffiosaurus_zanoni Marmornectes_candrewi Peloneustes_philarchus Simolestes_vorax Pliosaurus_funkei Pliosaurus_westburyensis Pliosaurus_brachydeirus Pliosaurus_almanzaensis Gallardosaurus_iturraldei Pliosaurus_rossicus Pliosaurus_irgisensis Pliosaurus_andrewsi Luskhan_itilensis Makhaira_rossica Lindwurmia_thiuda Liopleurodon_ferox Kronosaurus_MCZ_1285 Brachauchenius_lucasi Brachauchenius_MNA_V9433 QM_F51291 Sachicasaurus_vitae Acostasaurus_pavachoquensis Stenorhynchosaurus_munozi Attenborosaurus_conybeari Plesiosaurus_dolichodeirus Eopleiosaurus_antiquior Eretmosaurus_rugosus Westphaliasaurus_simonsensii Seeleyosaurus_guilelmiimperatoris Microcleidus_tournemirensis Microcleidus_brachypterygius Microcleidus_homalospondylus Plesiopterys_wildi Cryptoclidus_eurymerus Tricleidus_seeleyi Muraenosaurus_leedsii Kimmerosaurus_langhami Pantosaurus_striatus Picrocleidus_beloclis Tatenectes_laramiensis Plesiosaurus_mansellii Colymbosaurus_megadeirus Djupedalia_engeri Spitrasaurus_spp Ophthalmothule_cryostea Abyssosaurus_nataliae Umoonasaurus_demoscyllus Nichollssaura_borealis Leptocleidus_capensis Leptocleidus_superstes Hastanectes_valdensis Vectocleidus_pastorum Gronausaurus_wegneri Brancasaurus_brancai Edgarosaurus_muddi Palmulasaurus_quadratus Polycotylus_latipinnis Thililua_longicollis Trinacromerum_bentonianum Dolichorhynchops_osborni Dolichorhynchops_bonneri Eopolycotylus_rankini Manemergus_anguirostris Dolichorhynchops_tropicensis Georgiasaurus_penzensis Dolichorhynchops_ROM_29010 Dolichorhynchops_herschelensis Mauriciosaurus_fernandezi Plesiopleurodon_wellesi Richmond_pliosaur Pahasapasaurus_haasi Sulcusuchus_erraini Speeton_Clay_Plesiosaurian Wapuskanectes_betsynichollsae Eromangasaurus_australis Tuarangisaurus_keyesi Elasmosaurus_platyurus Terminonatator_ponteixensis Libonectes_morgani Kaiwhekea_katiki Aristonectes_quiriquinensis Aristonectes_parvidens Morturneria_seymourensis Albertonectes_vanderveldei Kawanectes_lafquenianum Vegasaurus_molyi Morenosaurus_stocki Hydrotherosaurus_alexandrae Wunyelfia_maulensis Aphrosaurus_furlongi Zarafasaura_oceanis Futabasaurus_suzukii Callawayasaurus_colombiensis MLP_99_XII_1_5 Alexandronectes_zealandiensis Fluvionectes_sagecrensis Cardiocorax_mukulu Jucha_squalea Chubutinectes_carmeloi Marambionectes_molinai Lagenanectes_richterae Thalassomedon_haningtoni Nakonanectes_bradti Styxosaurus_snowii Styxosaurus_rezaci Styxosaurus_SDSM_451 Styxosaurus_browni Traskasaura_sandrae 
+	;
+
+END;
+
+
+BEGIN CHARACTERS;
+	TITLE  Character_Matrix;
+	DIMENSIONS  NCHAR=16;
+	FORMAT DATATYPE = STANDARD RESPECTCASE GAP = - MISSING = ? SYMBOLS = "  0 1 2 3 4 5 6 7 8 9";
+	MATRIX
+	Yunguisaurus_liae                  1?41000?0?12?(2 3)?0
+	Pistosaurus_postcranium            ???2000000110??0
+	Pistosaurus_skull                  ????????????????
+	Augustasaurus_hagdorni             ??410000001?0???
+	Bobosaurus_forojuliensis           02100?111021?(2 3)1?
+	Macroplata_tenuiceps               02200?1110?10?01
+	Anningasaura_lymense               ???10?3?11??????
+	Stratesaurus_taylori               ?1?10111111?0???
+	Avalonnectes_arturi                (1 2)?21021110102?01
+	Eurycleidus_arcuatus               ???10211001???01
+	Meyerasaurus_victor                01200????01122?1
+	Maresaurus_coccai                  ???00?2?(0 1)???????
+	Borealonectes_russelli             01200?2??0??1???
+	Thaumatodracon_wiedenrothi         ?220011100??????
+	Atychodracon_megacephalus          01200?11?01121?2
+	Archaeonectrus_rostratus           0?2101110?10110?
+	Rhomaleosaurus_cramptoni           0?20?2110?011?0?
+	Rhomaleosaurus_zetlandicus         0?200?110??11002
+	Rhomaleosaurus_thorntoni           0??00?110??1??01
+	Thalassiodracon_hawkinsii          1131011110110101
+	Hauffiosaurus_longirostris         ????????????????
+	Hauffiosaurus_tomistomimus         1231011110110101
+	Hauffiosaurus_zanoni               0?31011110????01
+	Marmornectes_candrewi              01?00?12111?0?01
+	Peloneustes_philarchus             0110021211110?01
+	Simolestes_vorax                   0110021?11????0?
+	Pliosaurus_funkei                  ???00?1??20?0???
+	Pliosaurus_westburyensis           ???00?1???0?0???
+	Pliosaurus_brachydeirus            0??00?12?20?0???
+	Pliosaurus_almanzaensis            ???00?1?????????
+	Gallardosaurus_iturraldei          ?1?00?1?1???????
+	Pliosaurus_rossicus                ????????????????
+	Pliosaurus_irgisensis              ???00?1?1???????
+	Pliosaurus_andrewsi                021002111111??01
+	Luskhan_itilensis                  0010023222?{1 2}??01
+	Makhaira_rossica                   ????????????????
+	Lindwurmia_thiuda                  ????????????????
+	Liopleurodon_ferox                 00100212110???21
+	Kronosaurus_MCZ_1285               00000?32???1??21
+	Brachauchenius_lucasi              00000??2????????
+	Brachauchenius_MNA_V9433           ??000?3212??????
+	QM_F51291                          ????????????????
+	Sachicasaurus_vitae                01000?3220?1??11
+	Acostasaurus_pavachoquensis        ???00?1??0??????
+	Stenorhynchosaurus_munozi          01100?3220?2????
+	Attenborosaurus_conybeari          2?31?111??110??1
+	Plesiosaurus_dolichodeirus         2141021(0 1)10110100
+	Eopleiosaurus_antiquior            2?41011?10???100
+	Eretmosaurus_rugosus               (1 2)?(3 4)10?10101?0?00
+	Westphaliasaurus_simonsensii       2???021??0110?00
+	Seeleyosaurus_guilelmiimperatoris  2131021020200310
+	Microcleidus_tournemirensis        2142021020200???
+	Microcleidus_brachypterygius       2232021??0200310
+	Microcleidus_homalospondylus       2?42021020200?10
+	Plesiopterys_wildi                 ?2420211?0110300
+	Cryptoclidus_eurymerus             2131023210110001
+	Tricleidus_seeleyi                 ?2210232101?0???
+	Muraenosaurus_leedsii              2142023220?10?20
+	Kimmerosaurus_langhami             ?1?00?3?10??????
+	Pantosaurus_striatus               ??(3 4)10?32?01?0?20
+	Picrocleidus_beloclis              ?2410232201?0?20
+	Tatenectes_laramiensis             ???00?3210100???
+	Plesiosaurus_mansellii             ?2(3 4)10?32?0?1??11
+	Colymbosaurus_megadeirus           ?2410?3220?1??21
+	Djupedalia_engeri                  2?510132200?0???
+	Spitrasaurus_spp                   22520132200?0???
+	Ophthalmothule_cryostea            2?520?3220??????
+	Abyssosaurus_nataliae              21(4 5)10?3220?1??(1 2)?
+	Umoonasaurus_demoscyllus           ???10??21?012021
+	Nichollssaura_borealis             022101321001?00?
+	Leptocleidus_capensis              ??210?3210??????
+	Leptocleidus_superstes             ??(1 2)00132100?2?11
+	Hastanectes_valdensis              ?1(1 2)1023211????11
+	Vectocleidus_pastorum              ????01??1?0?2???
+	Gronausaurus_wegneri               ????02?22?1020(0 1)1
+	Brancasaurus_brancai               21410232200020(0 1)1
+	Edgarosaurus_muddi                 ?121013210??????
+	Palmulasaurus_quadratus            ???????????{1 2}????
+	Polycotylus_latipinnis             1220013210020011
+	Thililua_longicollis               {1 2}?31013210??????
+	Trinacromerum_bentonianum          ?2?00?32{0 1}0??????
+	Dolichorhynchops_osborni           021002321012?00?
+	Dolichorhynchops_bonneri           ?11001321111000?
+	Eopolycotylus_rankini              ???001?2?1?2????
+	Manemergus_anguirostris            1?210?32???0????
+	Dolichorhynchops_tropicensis       ??{1 2}10?32?0?20???
+	Georgiasaurus_penzensis            0??0????????????
+	Dolichorhynchops_ROM_29010         02?00232101?0?02
+	Dolichorhynchops_herschelensis     0?100232100{1 2}??01
+	Mauriciosaurus_fernandezi          0?10013210?1????
+	Plesiopleurodon_wellesi            ??110232110?{0 2}?{0 1}1
+	Richmond_pliosaur                  1210023210000011
+	Pahasapasaurus_haasi               12{1 2}10?32????????
+	Sulcusuchus_erraini                ????????????????
+	Speeton_Clay_Plesiosaurian         2??20232202?0?2?
+	Wapuskanectes_betsynichollsae      ??????????1?0???
+	Eromangasaurus_australis           ?2?20?3?????????
+	Tuarangisaurus_keyesi              ?2?2{1 2}?3?2???????
+	Elasmosaurus_platyurus             22632?322?1?0?30
+	Terminonatator_ponteixensis        2?53223220?????0
+	Libonectes_morgani                 2252223220?(0 1)??21
+	Kaiwhekea_katiki                   2?41{1 2}13220110?2?
+	Aristonectes_quiriquinensis        ?2?1213220?1??21
+	Aristonectes_parvidens             ?2?1{1 2}?3?2??????1
+	Morturneria_seymourensis           ???1{1 2}???2???????
+	Albertonectes_vanderveldei         2263223220100130
+	Kawanectes_lafquenianum            ???222322010002(0 1)
+	Vegasaurus_molyi                   ?252223220?00?21
+	Morenosaurus_stocki                ???22132?020?020
+	Hydrotherosaurus_alexandrae        2152223220100021
+	Wunyelfia_maulensis                ?1{2 3 4 5 6}1{1 2}?32201?????
+	Aphrosaurus_furlongi               ???221?22???????
+	Zarafasaura_oceanis                ?2?10232201(0 1)0?21
+	Futabasaurus_suzukii               ???221?220110???
+	Callawayasaurus_colombiensis       2?520232201?0???
+	MLP_99_XII_1_5                     ???1{1 2}???????????
+	Alexandronectes_zealandiensis      ????????????????
+	Fluvionectes_sagecrensis           ???22132???1????
+	Cardiocorax_mukulu                 ?2?1{1 2}?3220??????
+	Jucha_squalea                      ???201322?110?2?
+	Chubutinectes_carmeloi             ???22??220?1?02(0 1)
+	Marambionectes_molinai             ??422?3220????2(0 1)
+	Lagenanectes_richterae             ?1?10?3?20????21
+	Thalassomedon_haningtoni           2262123220110020
+	Nakonanectes_bradti                22411?3?2?1?0??1
+	Styxosaurus_snowii                 ???31?3?20??????
+	Styxosaurus_rezaci                 ?263123220??????
+	Styxosaurus_SDSM_451               2?63????2010????
+	Styxosaurus_browni                 2?631232201?0???
+	Traskasaura_sandrae                2?{4 5}30?322????020
+
+;
+
+END;
