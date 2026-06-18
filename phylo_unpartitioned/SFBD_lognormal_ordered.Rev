@@ -1,0 +1,195 @@
+#set working directory
+
+#read taxa and straghtigraphic ranges
+taxa <- readTaxonData("data/range.txt")
+
+#read the character matrix
+morpho_unord <- readDiscreteCharacterData("data/unordered.nex")
+morpho_ord   <- readDiscreteCharacterData("data/ordered.nex")
+
+#define helper variables
+#number of OTUs
+n_taxa <- taxa.size()
+
+#specify workspace for moves and monitors
+moves = VectorMoves()
+monitors = VectorMonitors()
+
+#specify interval ages (must be in ascending order)
+timeline <- v(23.8, 79, 108.1, 135.3)
+
+#specify the priors of the skyline FBD model
+alpha <- 10
+
+for(i in 1:(timeline.size()+1))
+{
+    mu[i] ~ dnExp(alpha)
+    lambda[i] ~ dnExp(alpha)
+    psi[i] ~ dnExp(alpha)
+
+    div[i] := lambda[i] - mu[i]
+    turnover[i] := mu[i]/lambda[i]
+
+    moves.append( mvScale(mu[i], weight = 1.0) )
+
+    moves.append( mvScale(lambda[i], weight = 1.0) )
+
+    moves.append( mvScale(psi[i], weight = 1.0) )
+}
+
+#assume that all plesiosaur lineages at K-PG were sampled
+#then the "extant sampling rate" equals 1
+rho <- 1
+
+#set the origin time
+origin_time ~ dnUnif(181.2, 185)
+
+moves.append( mvSlide(origin_time, weight=1.0) )
+
+#set the FBD tree
+
+fbd_dist = dnFBDP(origin=origin_time, lambda=lambda, mu=mu, psi=psi, rho=rho, taxa=taxa, timeline = timeline)
+
+#define the topological constraints
+
+ingroup=clade("Pistosaurus_postcranium","Pistosaurus_skull","Augustasaurus_hagdorni","Bobosaurus_forojuliensis","Macroplata_tenuiceps","Anningasaura_lymense","Stratesaurus_taylori","Avalonnectes_arturi","Eurycleidus_arcuatus","Meyerasaurus_victor","Maresaurus_coccai","Borealonectes_russelli","Thaumatodracon_wiedenrothi","Atychodracon_megacephalus","Archaeonectrus_rostratus","Rhomaleosaurus_cramptoni","Rhomaleosaurus_zetlandicus","Rhomaleosaurus_thorntoni","Thalassiodracon_hawkinsii","Hauffiosaurus_longirostris","Hauffiosaurus_tomistomimus","Hauffiosaurus_zanoni","Marmornectes_candrewi","Peloneustes_philarchus","Simolestes_vorax","Pliosaurus_funkei","Pliosaurus_westburyensis","Pliosaurus_brachydeirus","Pliosaurus_almanzaensis","Gallardosaurus_iturraldei","Pliosaurus_rossicus","Pliosaurus_irgisensis","Pliosaurus_andrewsi","Luskhan_itilensis","Makhaira_rossica","Lindwurmia_thiuda","Liopleurodon_ferox","Kronosaurus_MCZ_1285","Brachauchenius_lucasi","Brachauchenius_MNA_V9433","QM_F51291","Sachicasaurus_vitae","Acostasaurus_pavachoquensis","Stenorhynchosaurus_munozi","Attenborosaurus_conybeari","Plesiosaurus_dolichodeirus","Eopleiosaurus_antiquior","Eretmosaurus_rugosus","Westphaliasaurus_simonsensii","Seeleyosaurus_guilelmiimperatoris","Microcleidus_tournemirensis","Microcleidus_brachypterygius","Microcleidus_homalospondylus","Plesiopterys_wildi","Cryptoclidus_eurymerus","Tricleidus_seeleyi","Muraenosaurus_leedsii","Kimmerosaurus_langhami","Pantosaurus_striatus","Picrocleidus_beloclis","Tatenectes_laramiensis","Plesiosaurus_mansellii","Colymbosaurus_megadeirus","Djupedalia_engeri","Spitrasaurus_spp","Ophthalmothule_cryostea","Abyssosaurus_nataliae","Umoonasaurus_demoscyllus","Nichollssaura_borealis","Leptocleidus_capensis","Leptocleidus_superstes","Hastanectes_valdensis","Vectocleidus_pastorum","Gronausaurus_wegneri","Brancasaurus_brancai","Edgarosaurus_muddi","Palmulasaurus_quadratus","Polycotylus_latipinnis","Thililua_longicollis","Trinacromerum_bentonianum","Dolichorhynchops_osborni","Dolichorhynchops_bonneri","Eopolycotylus_rankini","Manemergus_anguirostris","Dolichorhynchops_tropicensis","Georgiasaurus_penzensis","Dolichorhynchops_ROM_29010","Dolichorhynchops_herschelensis","Mauriciosaurus_fernandezi","Plesiopleurodon_wellesi","Richmond_pliosaur","Pahasapasaurus_haasi","Sulcusuchus_erraini","Speeton_Clay_Plesiosaurian","Wapuskanectes_betsynichollsae","Eromangasaurus_australis","Tuarangisaurus_keyesi","Elasmosaurus_platyurus","Terminonatator_ponteixensis","Libonectes_morgani","Kaiwhekea_katiki","Aristonectes_quiriquinensis","Aristonectes_parvidens","Morturneria_seymourensis","Albertonectes_vanderveldei","Kawanectes_lafquenianum","Vegasaurus_molyi","Morenosaurus_stocki","Hydrotherosaurus_alexandrae","Wunyelfia_maulensis","Aphrosaurus_furlongi","Zarafasaura_oceanis","Futabasaurus_suzukii","Callawayasaurus_colombiensis","MLP_99_XII_1_5","Alexandronectes_zealandiensis","Fluvionectes_sagecrensis","Cardiocorax_mukulu","Jucha_squalea","Chubutinectes_carmeloi","Marambionectes_molinai","Lagenanectes_richterae","Thalassomedon_haningtoni","Nakonanectes_bradti","Styxosaurus_snowii","Styxosaurus_rezaci","Styxosaurus_SDSM_451","Styxosaurus_browni","Traskasaura_sandrae")
+
+Rhomaleosauridae=clade("Avalonnectes_arturi","Eurycleidus_arcuatus","Meyerasaurus_victor","Maresaurus_coccai","Borealonectes_russelli","Thaumatodracon_wiedenrothi","Atychodracon_megacephalus","Archaeonectrus_rostratus","Rhomaleosaurus_cramptoni","Rhomaleosaurus_zetlandicus","Rhomaleosaurus_thorntoni")
+
+Thalassophonea=clade("Peloneustes_philarchus","Simolestes_vorax","Pliosaurus_funkei","Pliosaurus_westburyensis","Pliosaurus_brachydeirus","Pliosaurus_almanzaensis","Gallardosaurus_iturraldei","Pliosaurus_rossicus","Pliosaurus_irgisensis","Pliosaurus_andrewsi","Luskhan_itilensis","Makhaira_rossica","Liopleurodon_ferox","Kronosaurus_MCZ_1285","Brachauchenius_lucasi","Brachauchenius_MNA_V9433","QM_F51291","Sachicasaurus_vitae","Acostasaurus_pavachoquensis","Stenorhynchosaurus_munozi")
+
+Microcleididae=clade("Seeleyosaurus_guilelmiimperatoris","Microcleidus_tournemirensis","Microcleidus_brachypterygius","Microcleidus_homalospondylus")
+
+Cryptoclididae=clade("Cryptoclidus_eurymerus","Tricleidus_seeleyi","Muraenosaurus_leedsii","Kimmerosaurus_langhami","Pantosaurus_striatus","Picrocleidus_beloclis","Tatenectes_laramiensis","Plesiosaurus_mansellii","Colymbosaurus_megadeirus","Djupedalia_engeri","Spitrasaurus_spp","Ophthalmothule_cryostea","Abyssosaurus_nataliae")
+
+Leptocleidian=clade("Umoonasaurus_demoscyllus","Nichollssaura_borealis","Leptocleidus_capensis","Leptocleidus_superstes","Hastanectes_valdensis","Vectocleidus_pastorum","Gronausaurus_wegneri","Brancasaurus_brancai","Edgarosaurus_muddi","Palmulasaurus_quadratus","Polycotylus_latipinnis","Thililua_longicollis","Trinacromerum_bentonianum","Dolichorhynchops_osborni","Dolichorhynchops_bonneri","Eopolycotylus_rankini","Manemergus_anguirostris","Dolichorhynchops_tropicensis","Georgiasaurus_penzensis","Dolichorhynchops_ROM_29010","Dolichorhynchops_herschelensis","Mauriciosaurus_fernandezi","Plesiopleurodon_wellesi","Richmond_pliosaur","Pahasapasaurus_haasi","Sulcusuchus_erraini")
+
+Polycotylidae=clade("Edgarosaurus_muddi","Palmulasaurus_quadratus","Polycotylus_latipinnis","Thililua_longicollis","Trinacromerum_bentonianum","Dolichorhynchops_osborni","Dolichorhynchops_bonneri","Eopolycotylus_rankini","Manemergus_anguirostris","Dolichorhynchops_tropicensis","Georgiasaurus_penzensis","Dolichorhynchops_ROM_29010","Dolichorhynchops_herschelensis","Mauriciosaurus_fernandezi","Plesiopleurodon_wellesi","Richmond_pliosaur","Pahasapasaurus_haasi","Sulcusuchus_erraini")
+
+Elasmosauridae=clade("Speeton_Clay_Plesiosaurian","Wapuskanectes_betsynichollsae","Eromangasaurus_australis","Tuarangisaurus_keyesi","Elasmosaurus_platyurus","Terminonatator_ponteixensis","Libonectes_morgani","Kaiwhekea_katiki","Aristonectes_quiriquinensis","Aristonectes_parvidens","Morturneria_seymourensis","Albertonectes_vanderveldei","Kawanectes_lafquenianum","Vegasaurus_molyi","Morenosaurus_stocki","Hydrotherosaurus_alexandrae","Wunyelfia_maulensis","Aphrosaurus_furlongi","Zarafasaura_oceanis","Futabasaurus_suzukii","Callawayasaurus_colombiensis","MLP_99_XII_1_5","Alexandronectes_zealandiensis","Fluvionectes_sagecrensis","Cardiocorax_mukulu","Jucha_squalea","Chubutinectes_carmeloi","Marambionectes_molinai","Lagenanectes_richterae","Thalassomedon_haningtoni","Nakonanectes_bradti","Styxosaurus_snowii","Styxosaurus_rezaci","Styxosaurus_SDSM_451","Styxosaurus_browni","Traskasaura_sandrae")
+
+topo_cons = v(ingroup,Rhomaleosauridae,Thalassophonea,Microcleididae,Cryptoclididae,Leptocleidian,Polycotylidae,Elasmosauridae)
+
+fbd_tree ~ dnConstrainedTopology(treeDistribution = fbd_dist, constraints=topo_cons)
+
+#specify moves that propose changes to the topology, divergence time, and origin time
+
+moves.append( mvFNPR(fbd_tree, weight=15.0) )
+
+moves.append( mvNodeTimeSlideUniform(fbd_tree, weight=40.0) )
+moves.append( mvRootTimeSlideUniform(fbd_tree, origin_time, weight=5.0) )
+
+#account for uncertainty in the fossil ages
+for(i in 1:n_taxa)
+{
+    t[i] := tmrca(fbd_tree, clade(taxa[i]))
+
+    a_i = taxa[i].getMinAge()
+    b_i = taxa[i].getMaxAge()
+
+    F[i] ~ dnUniform(t[i] - b_i, t[i] - a_i)
+    F[i].clamp( 0 )
+}
+
+moves.append( mvFossilTimeSlideUniform(fbd_tree, origin_time, weight=5.0) )
+
+#assign the site-rate model: discretized gamma distribution divided into 4 categories
+alpha_morpho ~ dnExponential( 1.0 )
+rates_morpho := fnDiscretizeGamma( alpha_morpho, alpha_morpho, 4 )
+
+moves.append( mvScale(alpha_morpho, weight=5.0) )
+
+#assign the clock model: relaxed clock (uncorrelated lognormal)
+
+#the number of branches
+n_branches <- 2 * n_taxa - 2
+
+#the mean of the lognormal distribution
+ucln_mean ~ dnExponential(2.0)
+
+#the standard deviation
+ucln_sigma ~ dnExponential(3.0)
+
+#the variance
+ucln_var := ucln_sigma * ucln_sigma
+
+#mu parameter of the lognormal distribution on branch rates.
+ucln_mu := ln(ucln_mean) - (ucln_var * 0.5)
+
+#append moves
+moves.append( mvScale(ucln_mean, lambda=1.0, tune=true, weight=4.0))
+moves.append( mvScale(ucln_sigma, lambda=0.5, tune=true, weight=4.0))
+
+#define branch rates
+for(i in 1:n_branches)
+{
+   branch_rates[i] ~ dnLnorm(ucln_mu, ucln_sigma)
+   moves.append( mvScale(branch_rates[i], lambda=1, tune=true, weight=2.0))
+}
+
+#apply a range of moves to branch rates
+moves.append( mvVectorScale(branch_rates,lambda=1.0,tune=true,weight=2.0) )
+moves.append( mvVectorSingleElementScale(branch_rates,lambda=30.0,tune=true,weight=1.0) )
+
+#assign the substitution model (ordered + unordered)
+idx = 1
+
+#unordered
+
+morpho_unord_sub[1] <- morpho_unord
+
+for (k in 2:9) {
+    morpho_unord_sub[k] <- morpho_unord                                  
+    morpho_unord_sub[k].setNumStatesPartition(k)  
+    
+    morpho_unord_sub[k].removeExcludedCharacters()                                  
+    nc_unord = morpho_unord_sub[k].nchar()                             
+
+    if (nc_unord > 0) {                                              
+        q[idx] <- fnJC(k)                                      
+        m_morph[idx] ~ dnPhyloCTMC(tree=fbd_tree, Q=q[idx], nSites=nc_unord, siteRates=rates_morpho, branchRates=branch_rates, type="Standard", coding="variable")
+        m_morph[idx].clamp(morpho_unord_sub[k])
+        idx = idx + 1
+     }
+}
+
+#ordered
+
+morpho_ord_sub[1] <- morpho_ord
+morpho_ord_sub[2] <- morpho_ord
+
+for (k in 3:9) {
+
+    morpho_ord_sub[k] <- morpho_ord                                  
+    morpho_ord_sub[k].setNumStatesPartition(k)  
+    
+    morpho_ord_sub[k].removeExcludedCharacters()                                   
+    nc_ord = morpho_ord_sub[k].nchar()                             
+
+    if (nc_ord > 0) {                                    
+        q[idx] <- fnOrderedRateMatrix(k, 1.0, 1.0)                                      
+        m_morph[idx] ~ dnPhyloCTMC(tree=fbd_tree, Q=q[idx], nSites=nc_ord, siteRates=rates_morpho, branchRates=branch_rates, type="Standard", coding="variable")
+        m_morph[idx].clamp(morpho_ord_sub[k])
+        idx = idx + 1
+     }
+}
+
+
+#package the entire model
+mymodel = model(fbd_tree)
+
+#set monitors to save the parameters
+monitors.append( mnModel(filename="output/results.log", printgen=500, exclude = ["F"]) )
+
+monitors.append( mnExtNewick(filename="output/results.trees", isNodeParameter=TRUE, printgen=500, separator=TAB, tree=fbd_tree, branch_rates))
+
+monitors.append( mnScreen(printgen=50) )
+
+#set and run the mcmc
+mymcmc = mcmcmc(mymodel, monitors, moves, nchains=4, nruns=4, tuneHeat=true, swapMethod="both", swapInterval=10, swapInterval2=100, swapMode="multiple")
+
+mymcmc.burnin(generations=10000, tuningInterval=250)
+
+mymcmc.run(generations=500000)
+
+q()
