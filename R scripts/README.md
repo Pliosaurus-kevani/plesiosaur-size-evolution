@@ -33,6 +33,14 @@ Commented R scripts to enable readers to reproduce the analyses. All scripts wer
 **rate_distribution_unpar.R**:
 >Script for subfigures A and E of figure 4, and subfigure E of figure 3. It generates the hexbin plot and mass distribution of branches that exhibit rate bursts in the unpartitioned dataset, as well as the raincloud plots of branch mass of four subsets. This script also combines the subfigures **morpho_rate_partitioned_all branch.rds** to create figure 4, so **rate_distribution_par.R** should be run before this script.
 
+## figure 3
+
+**neck_length_mass.R**:
+>Script for subfigures A and B of figure 3 presented in the manuscript, as well as the cluster dendrogram presented in figure S2. This R script performs phylogenetic generalized least squares between body mass and neck principal coordinate, and generates figure files **mass_neck_scatter.rds** and **neck_binplot.rds**.
+
+**neck_rate_mass.R**:
+>Script for subfigures C and D of figure 3 presented in the manuscript. It creates files for the variable-rates model, which was run on [BayesTraits](https://www.evolution.reading.ac.uk/BayesTraitsV5.0.0/BayesTraitsV5.0.0.html) 4.0.0. To run BayesTraits and Posterior Processor, you need to download the software from the [official website](https://www.evolution.reading.ac.uk/SoftwareMain.html), and include the two tools in the folder where the scripts and data files are contained. I have uploaded my results in another folder. This R script also combines the subfigures to create figure 3. The .rds files generated in R scripts **rate_distribution_unpar.R** and **neck_length_mass.R** are required to successfully run this script. 
+
 ## figure S1
 
 **plot_consensus.R**:
