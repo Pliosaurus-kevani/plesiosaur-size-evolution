@@ -1,6 +1,6 @@
 # R scripts
 
-Commented R scripts to enable readers to reproduce the analyses. All scripts were run based on R 4.5.2.
+Commented R scripts to enable readers to reproduce the analyses. All scripts were run based on [R](https://www.r-project.org/) 4.5.2.
 
 ## figure 1
 
