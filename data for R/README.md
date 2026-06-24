@@ -3,7 +3,7 @@
 Data files required to run the [R scripts](https://github.com/Pliosaurus-kevani/plesiosaur-size-evolution/tree/main/R%20scripts).
 
 **consensus1.tre**:
->50% majority-rule consensus tree of the first run of the unpartitioned analysis.
+>50% majority-rule consensus tree of the unpartitioned analysis.
 
 **map1.tre**:
 >Maximum a posteriori tree of the first run of the unpartitioned analysis.
