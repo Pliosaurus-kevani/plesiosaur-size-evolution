@@ -20,7 +20,7 @@ library(ggtree) #version 4.0.4; loaded for visualization
 #read the trees
 #cd, craniodental; ax, axial; ap, appendicular
 
-map <- readTrees("map1.tre")
+map <- readTrees("map_combined.tre")
 map.cd <- readTrees("map.craniodental.tre")
 map.ax <- readTrees("map.axial.tre")
 map.ap <- readTrees("map.appendicular.tre")
