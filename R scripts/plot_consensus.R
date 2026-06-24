@@ -19,7 +19,7 @@ library(ggplot2) #version 4.0.2; loaded for visualization
 
 #read the tree
 
-consensus <- readTrees("consensus1.tre")
+consensus <- readTrees("consensus_combined.tre")
 
 tree <- consensus[[1]][[1]]
 
