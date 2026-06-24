@@ -66,7 +66,7 @@ load("tree.RData")
 
 #find the taxa both present in the data set and the trees
 
-name.int <- intersect(row.names(neck.data), mcct$tip.label)
+name.int <- intersect(row.names(neck.data), tree[[1]]$tip.label)
 
 #prune the trees
 
