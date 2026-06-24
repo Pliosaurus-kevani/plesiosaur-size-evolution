@@ -2,14 +2,14 @@
 
 Data files required to run the [R scripts](https://github.com/Pliosaurus-kevani/plesiosaur-size-evolution/tree/main/R%20scripts).
 
-**consensus1.tre**:
+**consensus_combined.tre**:
 >50% majority-rule consensus tree of the unpartitioned analysis.
 
-**map1.tre**:
->Maximum a posteriori tree of the first run of the unpartitioned analysis.
+**map_combined.tre**:
+>Maximum a posteriori tree of the unpartitioned analysis.
 
 **map.craniodental.tre**, **map.axial.tre**, and **map.appendicular.tre**:
->Maximum a posteriori tree of the first run of the partitioned analysis. The three files should be completely the same tree, and they were created to ensure the results of the partitioned analysis were exported correctly.
+>Maximum a posteriori tree of the partitioned analysis. The three files should be completely the same tree, and they were created to ensure the results of the partitioned analysis were exported correctly.
 
 **mass.csv**:
 >Body mass file of 89 plesiosaur species.
