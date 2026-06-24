@@ -44,7 +44,7 @@ Commented R scripts to enable readers to reproduce the analyses. All scripts wer
 ## figure S1
 
 **plot_consensus.R**:
->Script for figure S1. It plots the 50% reduced consensus tree.
+>Script for figure S1. It plots the 50% majority-rule consensus tree.
 
 ## other analyses
 
