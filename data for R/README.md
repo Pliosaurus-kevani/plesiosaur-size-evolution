@@ -20,8 +20,8 @@ Data files required to run the [R scripts](https://github.com/Pliosaurus-kevani/
 **neck data.csv**:
 >Neck length file of plesiosaurs
 
-**results_run_1.log**:
->Parameters of the first run of the unpartitioned phylogenetic analysis.
+**results_run_1.log**, **results_run_2.log**, **results_run_3.log**, **results_run_4.log**:
+>Parameters of the unpartitioned phylogenetic analysis.
 
 **tree.RData**:
 >A hundred randomly selected posterior trees of the unpartitioned analysis. The variable **TREE** is a list containing *treedata* files (see, for example, R package [tidytree](https://cran.r-project.org/web/packages/tidytree/index.html) for introduction). The variable **tree** is a list containing *phylo* structures.
