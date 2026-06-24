@@ -220,10 +220,11 @@ aicc.plot <- ggplot(plot.data, aes(
     x = NULL                 
   ) +
   theme_bw(base_size = 7) +
+  ylim(80, 175) +
   theme(
-    plot.title = element_text(size = 8, hjust = 0.5, face = "bold"),
-    axis.title = element_text(size = 8),         
-    axis.text = element_text(size = 6),          
+    plot.title = element_text(size = 14, hjust = 0.5, face = "bold"),
+    axis.title = element_text(size = 12),         
+    axis.text = element_text(size = 10),          
     axis.line = element_line(linewidth = 0.3),
     axis.ticks = element_line(linewidth = 0.3),
     legend.position = "none"
