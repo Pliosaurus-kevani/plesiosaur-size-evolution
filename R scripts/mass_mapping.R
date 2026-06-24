@@ -22,7 +22,7 @@ library(RColorBrewer) #version 1.1-3; loaded for loading color palette
 
 #read the maximum a posteriori tree
 
-MAPT <- readTrees("map1.tre")
+MAPT <- readTrees("map_combined.tre")
 
 #extract the tree topology
 
